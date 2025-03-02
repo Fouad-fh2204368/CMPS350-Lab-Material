@@ -1,0 +1,174 @@
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-color: white;
+    --primary-text-color: black;
+    --light-text-color: black;
+    --btn-color: orange;
+    --highlight: yellow;
+    --link-color: blue;
+    --separator: #e60e0e;
+    --dark-text-color: white;
+
+    color-scheme: light;
+}
+
+/* body {
+    background-color: var(--bg-color);
+    color: var(--primary-text-color);
+} */
+
+.container {
+    display: grid;
+    flex-direction: column;
+    height: 98vh;
+    grid-template-rows: auto auto 1fr auto;
+
+    grid-template-areas:
+        "header"
+        "nav"
+        "main"
+        "footer";
+    ;
+}
+
+header {
+    text-align: center;
+    border-bottom: 1px solid var(--separator);
+    padding: 1rem;
+
+    span {
+        color: green;
+    }
+
+    grid-area: header;
+}
+
+
+/* header span {color: green;} */
+nav {
+    grid-area: nav;
+}
+
+nav h1 {
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 1rem;
+    text-align: center;
+}
+
+nav ul li {
+    margin: 0.2rem;
+
+}
+
+nav ul li a {
+    text-decoration: none;
+}
+
+
+main {
+    background-image: url('../img/bg.jpg');
+    background-size: cover;
+
+
+    color: var(--dark-text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    flex: 1;
+
+    grid-area: main;
+
+}
+
+.sub-img {
+    height: 20vh;
+    width: 20vw;
+    object-fit: cover;
+}
+
+.btn-buy {
+    background-color: var(--btn-color);
+    color: var(--dark-text-color);
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+}
+
+footer {
+    background-color: var(--btn-color);
+    color: var(--dark-text-color);
+    text-align: center;
+    padding: 0.5rem;
+
+    grid-area: footer;
+}
+
+:root:has(#theme:checked) {
+    color-scheme: dark;
+}
+
+/* media query */
+
+@media screen and (prefers-color-scheme: dark) {
+    :root {
+        color-scheme: dark;
+
+        /* --bg-color: black;
+        --primary-text-color: white;
+        --light-text-color: white;
+        --btn-color: blue;
+        --highlight: yellow;
+        --link-color: yellow;
+        --separator: #e60e0e;
+        --dark-text-color: black; */
+    }
+
+}
+
+/* learn how to detect different screen sizes */
+
+@media screen and (min-width :400px) {
+    .container {
+        grid-template-columns: 1fr 4fr;
+        grid-template-rows: auto 1fr auto;
+        grid-template-areas:
+            "header main"
+            "nav main"
+            "footer footer";
+
+        ;
+    }
+}
+
+@media screen and (min-width :600px) {
+    .container {
+        grid-template-columns: 1fr 4fr;
+        grid-template-rows: auto 1fr auto;
+        grid-template-areas:
+            "header nav"
+            "main main"
+            "footer footer";
+    }
+
+
+    nav ul {
+        display: flex;
+        justify-content: end;
+    }
+
+    header h1 {
+        border-right: 1px solid var(--separator);
+        padding-right: 1rem;
+    }
+}
+
+/* @media screen and (max-width : 400px) {} */
