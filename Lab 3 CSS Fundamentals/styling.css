@@ -2,3 +2,38 @@ h2 {
     background-color: brown;
     color: white;
 }
+
+li{
+    background-color: maroon;
+    list-style-type: none;
+}
+
+.box{
+    height: 5rem;
+    width: 5rem;
+    background-color: burlywood;
+}
+
+.box p{
+    font-size: 0.8rem;
+    font-style: italic;
+}
+
+.boxes{
+    display: flex;
+    border : 2px solid red;
+    height: 300px;
+    width: 500px;
+
+    /*direction*/
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+}
+
+.box:hover{
+    background-color: chocolate;
+}
+
+
+
